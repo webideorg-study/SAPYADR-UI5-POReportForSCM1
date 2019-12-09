@@ -1,0 +1,36 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ZPReq.controller.V_PReqD">
+	<App>
+		<pages>
+			<Page title="{i18n>preqdtitle}" showNavButton="true" navButtonPress="GoToPReqH">
+				<content>
+					<List noDataText="No data found" id="it_list" items="{/PReqSet}">
+						<items>
+							<ObjectListItem>
+								<attributes>
+									<ObjectAttribute text="Purchase Requisition: {Banfn}"/>
+									<ObjectAttribute text="Item Number: {Bnfpo}"/>
+									<ObjectAttribute text="Document Type: {Bsart}"/>
+									<ObjectAttribute text="Release Indicator: {Frgkz}"/>
+									<ObjectAttribute text="Release Strategy: {Frgst}"/>
+									<ObjectAttribute text="Purchasing Group: {Ekgrp}"/>
+									<ObjectAttribute text="Created By: {Ernam}"/>
+									<ObjectAttribute text="Plant: {Werks}"/>
+									<ObjectAttribute text="Purchasing Organization: {Ekorg}"/>
+									<ObjectAttribute text="Material Group: {Matkl}"/>
+									<ObjectAttribute text="Quantity: {Menge}"/>
+									<ObjectAttribute text="Name of Requisitioner/Requester: {Afnam}"/>
+									<ObjectAttribute text="Description: {Txz01}"/>
+									<ObjectAttribute text="Tracking Number: {Bednr}"/>
+									<ObjectAttribute text="Purchase Order: {Ebeln}"/>
+									<ObjectAttribute text="Puchase Order Item Number: {Ebelp}"/>
+									<ObjectAttribute text="Created On: {Erdat}"/>									
+							
+								</attributes>
+							</ObjectListItem>
+						</items>
+					</List>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

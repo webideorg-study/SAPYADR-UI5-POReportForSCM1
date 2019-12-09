@@ -1,0 +1,10 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="POReportForSCM1.controller.V_Root"
+	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true">
+	<App id="V_Main">
+		<pages>
+			<Page title="{i18n>roottitle}">
+				<content/>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

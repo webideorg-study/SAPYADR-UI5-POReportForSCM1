@@ -1,0 +1,54 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ZPReq.controller.V_PReqH">
+	<App>
+		<pages>
+			<Page title="{i18n>preqhtitle}" showNavButton="true" navButtonPress="NavToCountView">
+				<content>
+					<List noDataText="No data found" id="it_list" items="{/PReqSet}">
+						<items>
+							<StandardListItem type="Navigation"
+							title="PReq: {Banfn} Item: {Bnfpo} Plant: {Werks}" 
+							description="Qty: {Menge}, Mat Grp: {Matkl}, Desc: {Txz01r}"
+							press="NavToDetailView"/>
+						</items>
+					</List>
+				</content>
+				<!--<Table id="it_item" items="{path:'/PReqSet'}" visible="true">-->
+				<!--	<columns>-->
+				<!--		<Column>-->
+				<!--			<Text text="PReq"/>-->
+				<!--		</Column>-->
+				<!--		<Column>-->
+				<!--			<Text text="Item"/>-->
+				<!--		</Column>-->
+				<!--		<Column>-->
+				<!--			<Text text="Plant"/>-->
+				<!--		</Column>-->
+				<!--		<Column>-->
+				<!--			<Text text="Qty"/>-->
+				<!--		</Column>-->
+				<!--		<Column>-->
+				<!--			<Text text="Mat Grp"/>-->
+				<!--		</Column>-->
+				<!--		<Column>-->
+				<!--			<Text text="Description"/>-->
+				<!--		</Column>-->
+				<!--		<Column>-->
+				<!--			<Text text="Date"/>-->
+				<!--		</Column>-->
+				<!--	</columns>-->
+				<!--	<items>-->
+				<!--		<ColumnListItem>-->
+				<!--			<Text text="{Banfn}"/>-->
+				<!--			<Text text="{Bnfpo}"/>-->
+				<!--			<Text text="{Werks}"/>-->
+				<!--			<Text text="{Menge}"/>-->
+				<!--			<Text text="{Matkl}"/>-->
+				<!--			<Text text="{Txz01}"/>-->
+				<!--			<Text text="{Erdat}"/>-->
+				<!--		</ColumnListItem>-->
+				<!--	</items>-->
+				<!--</Table>-->
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,31 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="ZPReq.controller.V_Input">
+	<App>
+		<pages>
+			<Page title="{i18n>inputtitle}">
+				<content>
+					<VBox width="100%" direction="Column" id="__vbox0">
+						<items>
+							<Label text=" From Date*" width="100%" id="Lb_FromDate" design="Bold"/>
+							<DatePicker width="100%" id="FromDate"  valueFormat="yyyy-MM-dd" placeholder="Enter PReq Creation From Date ..." class="sapUiSmallMarginBottom"/>
+							<!--<Label text=" To Date" width="100%" id="Lb_ToDate" design="Bold"/>-->
+							<!--<DatePicker width="100%" id="ToDate" placeholder="Enter PReq Creation To Date ..." class="sapUiSmallMarginBottom"/>-->
+							<Label text=" Purchasing Group" width="100%" id="Lb_PGroup" design="Bold"/>
+							<ComboBox id="PGrp" width="100%" showSecondaryValues="true" placeholder="Select or Enter a PGroup"
+								items="{ path: '/PGroupSet', sorter: { path: 'Ekgrp' }}" 
+								class="sapUiSmallMarginBottom">
+								<core:ListItem key="{Ekgrp}" text="{Ekgrp}" additionalText="{Eknam}"/>
+							</ComboBox>
+							<Label text=" Plant" width="100%" id="Lb_Plant" design="Bold"/>
+							<ComboBox id="Plant" width="100%" showSecondaryValues="true" placeholder="Select or Enter a Plant"
+								items="{ path: '/PlantSet', sorter: { path: 'Werks' }}">
+								<core:ListItem key="{Werks}" text="{Werks}" additionalText="{Name1}"/>
+							</ComboBox>
+						</items>
+						<Button text="Get PReq Count" width="200px" id="Bt_GetCount" press="GetPRequisitionCount"/>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,21 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="ZPReq.controller.V_Count">
+	<App>
+		<pages>
+			<Page title="{i18n>counttitle}" showNavButton="true" navButtonPress="GoToInputView">
+				<content>
+					<VBox width="100%" direction="Column" id="__vbox0">
+						<Text text="There are {count} Open Purchase Requisition" id="Count" class="sapUiSmallMarginBottom"/>
+						<Button text="Show Purchase Requisition" width="200px" id="Bt_ShowPReq" press="ShowPReq"/>
+					</VBox>
+					<!--<List noDataText="No data found" id="it_list" items="{/PReqSet}">-->
+					<!--	<items>-->
+					<!--		<StandardListItem type="Navigation" title="PReq: {Banfn} Item: {Bnfpo} Plant: {Werks}"-->
+					<!--			description="Qty: {Menge}, Mat Grp: {Matkl}, Desc: {Txz01r}" press="NavToDetailView"/>-->
+					<!--	</items>-->
+					<!--</List>-->
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

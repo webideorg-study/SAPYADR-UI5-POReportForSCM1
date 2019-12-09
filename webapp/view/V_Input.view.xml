@@ -1,0 +1,30 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" controllerName="POReportForSCM1.controller.V_Input" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="{i18n>v_input_title}">
+				<content>
+					<VBox width="100%" direction="Column" id="vbox" class="sapUiSmallMargin">
+						<items>
+							<Label text=" From Date*" width="90%" id="Lb_FromDate" design="Bold"/>
+							<DatePicker width="90%" id="FromDate" valueFormat="yyyy-MM-dd" placeholder="Enter SO Creation From Date ..." class="sapUiSmallMarginBottom"/>
+							<!--<Label text=" To Date" width="100%" id="Lb_ToDate" design="Bold"/>-->
+							<!--<DatePicker width="100%" id="ToDate" placeholder="Enter PReq Creation To Date ..." class="sapUiSmallMarginBottom"/>-->
+							<Label text=" Business Partner" width="90%" id="Lb_BP" design="Bold"/>
+							<ComboBox id="BP" width="90%" showSecondaryValues="true" placeholder="Select or Enter a Business Partner"
+								items="{ path: '/BusinessPartnerSet', length: 8, sorter: { path: 'BusinessPartnerID' }}" class="sapUiSmallMarginBottom">
+								<core:ListItem key="{BusinessPartnerID}" text="{CompanyName}" additionalText="{BusinessPartnerRole}"/>
+							</ComboBox>
+							<Label text=" Product" width="90%" id="Lb_PT" design="Bold"/>
+							<ComboBox id="PT" width="90%" showSecondaryValues="true" placeholder="Select or Enter a Product"
+								items="{ path: '/ProductSet', length: 6, sorter: { path: 'ProductID' }}">
+								<core:ListItem key="{ProductID}" text="{Name}" additionalText="{Price} {CurrencyCode}"/>
+							</ComboBox>
+						</items>
+						<Button text="Get PReq Count" width="200px" id="Bt_GetCount" press="GetPRequisitionCount"/>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
