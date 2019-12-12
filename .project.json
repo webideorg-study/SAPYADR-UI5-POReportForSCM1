@@ -22,7 +22,7 @@
     {
       "templateId": "servicecatalog.connectivityComponent",
       "templateVersion": "0.0.0",
-      "dateTimeStamp": "Tue, 26 Nov 2019 05:46:27 GMT"
+      "dateTimeStamp": "Thu, 12 Dec 2019 08:32:57 GMT"
     }
   ],
   "translation": {
@@ -53,7 +53,7 @@
   },
   "mockpreview": {
     "mockUri": "/sap/opu/odata/iwbep/GWSAMPLE_BASIC",
-    "metadataFilePath": "",
+    "metadataFilePath": "model/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""

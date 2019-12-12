@@ -10,8 +10,8 @@
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"sourceTemplate": {
-			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.40.12"
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
 		},
 		"dataSources": {
 			"GWSAMPLE_BASIC": {
@@ -19,7 +19,7 @@
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "model/metadata.xml"
+					"localUri": "localService/GWSAMPLE_BASIC/metadata.xml"
 				}
 			}
 		}

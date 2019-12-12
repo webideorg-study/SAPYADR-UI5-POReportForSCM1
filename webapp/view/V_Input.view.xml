@@ -2,7 +2,7 @@
 	xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" controllerName="POReportForSCM1.controller.V_Input" displayBlock="true">
 	<App>
 		<pages>
-			<Page title="{i18n>v_input_title}">
+			<Page title="{i18n>inputtitle}">
 				<content>
 					<VBox width="100%" direction="Column" id="vbox" class="sapUiSmallMargin">
 						<items>
