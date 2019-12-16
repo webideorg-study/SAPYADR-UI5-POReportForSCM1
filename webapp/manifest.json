@@ -109,6 +109,20 @@
 					"clearAggregation": true,
 					"viewName": "V_Count",
 					"viewLevel": 2
+				},
+				"Target_V_PReqH": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "V_PReqH",
+					"viewLevel": 2
+				},
+				"Target_V_PReqD": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "V_PReqD",
+					"viewLevel": 3
 				}
 			},
 			"routes": [{
@@ -123,6 +137,18 @@
 				"titleTarget": "",
 				"greedy": false,
 				"target": ["Target_V_Count"]
+			}, {
+				"name": "Target_V_PReqH",
+				"pattern": "V_PReqH/{p_DT}/{p_BP}/{p_PT}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Target_V_PReqH"]
+			}, {
+				"name": "Target_V_PReqD",
+				"pattern": "V_PReqD/{p_SO}/{p_CU}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Target_V_PReqD"]
 			}]
 		}
 	}

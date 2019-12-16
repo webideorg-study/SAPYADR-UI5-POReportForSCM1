@@ -1,9 +1,16 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="POReportForSCM1.controller.V_PReqH"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="POReportForSCM1.controller.V_PReqH">
 	<App>
 		<pages>
-			<Page title="Title">
-				<content></content>
+			<Page title="{i18n>preqhtitle}" showNavButton="true" navButtonPress="NavToCountView">
+				<content>
+					<List noDataText="No data found" id="it_list" items="{/SalesOrderSet}">
+						<items>
+							<StandardListItem type="Navigation" title="Sales Order: {SalesOrderID} Customer: {CustomerID} Gross Amount: {GrossAmount}"
+								description="Created At: {CreatedAt} Lifecycle Status: {LifecycleStatus} Lifecycle Desc: {LifecycleStatusDescription}"
+								icon="sap-icon://grid" press="NavToDetailView"/></items>
+					</List>
+				</content>
 			</Page>
 		</pages>
 	</App>

@@ -48,10 +48,9 @@ sap.ui.define([
 		//	}
 
 		// Custom Method to bind the elements using the Event Arguments
-		_onRouteFound: function(oEvt) {
-
-			//debugger;
-			var oArgument = oEvt.getParameter("arguments");
+		_onRouteFound: function(oEvent) {
+			
+			var oArgument = oEvent.getParameter("arguments");
 			var lv_DT = oArgument.p_DT;
 			var lv_BP = oArgument.p_BP;
 			var lv_PT = oArgument.p_PT;
@@ -120,7 +119,7 @@ sap.ui.define([
 				sap.m.MessageToast.show("Failure");
 				console.log("Error", oError);
 			}
-			
+
 			// // 方式1--先读取内容，然后计算内容长度
 			// oModelM.read("/SalesOrderSet", {
 			// 	"async": false, //在v2版本的ODataModel中async参数无效
@@ -131,7 +130,7 @@ sap.ui.define([
 			// 	"success": fnSuccess_in,
 			// 	"error": fnError_in
 			// });
-			
+
 			// 方式2--直接读取OData长度
 			oModelM.read("/SalesOrderSet/$count", {
 				"async": false, //在v2版本的ODataModel中async参数无效
@@ -143,20 +142,63 @@ sap.ui.define([
 					var v_count = oData + " Purchase Requisitions Line Items which are not complete.";
 					//sap.ui.getCore().byId("__xmlview2--Count").setText(v_count);
 					oView.byId("Count").setText(v_count);
-				 },
+				},
 				"error": fnError_in
 			});
 
 			var oJson = {};
-			oJson.vDT = lv_DT;
-			oJson.vBP = lv_BP;
-			oJson.vPT = lv_PT;
+			oJson.DT = lv_DT;
+			oJson.BP = lv_BP;
+			oJson.PT = lv_PT;
 
-			this.myLocalModel.setData(oJson);
 			// If we want this Model is another View/Page, we need to setModel		
-			//		sap.ui.getCore().setModel(this.myLocalModel);
+			// sap.ui.getCore().setModel(this.myLocalModel);
+			this.myLocalModel.setData(oJson);
 
-		}
+			// console.log(oJson.DT);
+			// console.log(oJson.BP);
+			// console.log(this.myLocalModel.getData().DT);
+			// console.log(this.myLocalModel.getData().BP);
+			
+			// console.log(this.myLocalModel.oData.DT);
+			// console.log(this.myLocalModel.oData.BP);
+			
+			// console.log(this.myLocalModel.getProperty("/DT"));
+			// console.log(this.myLocalModel.getProperty("/BP"));
+			
+			
+			// var oModel = new sap.ui.model.json.JSONModel();
+			// oModel.setData({modelData: oJson});
+			// console.log(oModel.getJSON());
+		},
+
+		GoToInputView: function(oEvent) {
+			var oHistory = sap.ui.core.routing.History.getInstance();
+			var sPreviousHash = oHistory.getPreviousHash();
+			// Go one screen back if you find a Hash
+			if (sPreviousHash !== undefined) {
+				window.history.go(-1);
+			} // If you do not find a correct Hash, go to the Source screen using default router;
+			else {
+				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				oRouter.navTo("Route_Input", true);
+			}
+		},
+		
+		ShowSO: function(oEvent) {
+			var lv_DT = this.myLocalModel.oData.DT;
+			var lv_BP = this.myLocalModel.oData.BP;
+			var lv_PT = this.myLocalModel.oData.PT;
+			
+			// Now Get the Router Info
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+
+			oRouter.navTo("Target_V_PReqH", {
+				p_DT: lv_DT,
+				p_BP: lv_BP,
+				p_PT: lv_PT
+			});
+		},
 
 	});
 

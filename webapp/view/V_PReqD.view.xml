@@ -1,10 +1,27 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="POReportForSCM1.controller.V_PReqD"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="POReportForSCM1.controller.V_PReqD">
 	<App>
 		<pages>
-			<Page title="Title">
-				<content></content>
-			</Page>
-		</pages>
-	</App>
+			<Page title="{i18n>preqdtitle}" showNavButton="true" navButtonPress="GoToPReqH">
+				<content>
+					<!--方式 1-->
+					<!--<List noDataText="No data found" id="it_list" items="{/SalesOrderSet}">-->
+					<!--方式 2-->
+					<List noDataText="No data found" id="it_list">
+					<items>
+						<ObjectListItem>
+							<attributes>
+								<ObjectAttribute text="Sales Order ID: {SalesOrderID}"/>
+								<ObjectAttribute text="Gross Amount: {GrossAmount}"/>
+								<ObjectAttribute text="Currency Code: {CurrencyCode}"/>
+								<ObjectAttribute text="Customer ID: {CustomerID}"/>
+								<ObjectAttribute text="Customer Name: {CustomerName}"/>
+							</attributes>
+						</ObjectListItem>
+					</items>
+				</List>
+			</content>
+		</Page>
+	</pages>
+</App>
 </mvc:View>
