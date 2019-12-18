@@ -19,6 +19,16 @@ sap.ui.define([
 			// Validate/Match the Router Details sent from Input Controller
 			oRouter.getRoute("Target_V_Count").attachMatched(this._onRouteFound, this);
 
+			//标题字段名数据
+			var oAppData = {
+				"Count": 0
+			};
+
+			// 根据输出可见oAppData为Object，而Title为其属性，可以直接引用
+			//console.log(this.oAppData);
+			var oCountModel = new sap.ui.model.json.JSONModel(oAppData);
+			oCountModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+			this.getView().setModel(oCountModel, "CountData");
 		},
 
 		/**
@@ -49,7 +59,7 @@ sap.ui.define([
 
 		// Custom Method to bind the elements using the Event Arguments
 		_onRouteFound: function(oEvent) {
-			
+
 			var oArgument = oEvent.getParameter("arguments");
 			var lv_DT = oArgument.p_DT;
 			var lv_BP = oArgument.p_BP;
@@ -139,9 +149,23 @@ sap.ui.define([
 				// },
 				"filters": aFilters,
 				"success": function(oData, oResponse) {
-					var v_count = oData + " Purchase Requisitions Line Items which are not complete.";
-					//sap.ui.getCore().byId("__xmlview2--Count").setText(v_count);
-					oView.byId("Count").setText(v_count);
+
+					// // 方式2.1--应用视图中元素，然后修改Value
+					// var v_count = oData + " Purchase Requisitions Line Items which are not complete.";
+					// //sap.ui.getCore().byId("__xmlview2--Count").setText(v_count);
+					// oView.byId("Count").setText(v_count);
+
+					// 需要在onInit方法中设置 双向绑定: oCountModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+					// 方式2.2--使用Model
+					oView.getModel("CountData").getData().Count = oData;
+					oView.getModel("CountData").refresh();
+
+					// 方式2.3
+					// var oCountModel = oView.getModel("CountData");
+					// var oAppData = oCountModel.getData();
+					// oAppData.Count = oData;
+					// oCountModel.setData(oAppData);
+					// oView.setModel(oCountModel, "CountData");
 				},
 				"error": fnError_in
 			});
@@ -159,14 +183,13 @@ sap.ui.define([
 			// console.log(oJson.BP);
 			// console.log(this.myLocalModel.getData().DT);
 			// console.log(this.myLocalModel.getData().BP);
-			
+
 			// console.log(this.myLocalModel.oData.DT);
 			// console.log(this.myLocalModel.oData.BP);
-			
+
 			// console.log(this.myLocalModel.getProperty("/DT"));
 			// console.log(this.myLocalModel.getProperty("/BP"));
-			
-			
+
 			// var oModel = new sap.ui.model.json.JSONModel();
 			// oModel.setData({modelData: oJson});
 			// console.log(oModel.getJSON());
@@ -184,12 +207,12 @@ sap.ui.define([
 				oRouter.navTo("Route_Input", true);
 			}
 		},
-		
+
 		ShowSO: function(oEvent) {
 			var lv_DT = this.myLocalModel.oData.DT;
 			var lv_BP = this.myLocalModel.oData.BP;
 			var lv_PT = this.myLocalModel.oData.PT;
-			
+
 			// Now Get the Router Info
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 

@@ -5,7 +5,7 @@
 			<Page title="{i18n>counttitle}" showNavButton="true" navButtonPress="GoToInputView">
 				<content>
 					<VBox width="100%" direction="Column" id="__vbox0">
-						<Text text="There are {count} Open SO" id="Count" class="sapUiSmallMarginBottom"/>
+						<Text text="There are {CountData>/Count} Open SO" id="Count" class="sapUiSmallMarginBottom"/>
 						<Button text="Show Purchase Requisition" width="200px" id="Bt_ShowPReq" press="ShowSO"/>
 					</VBox>
 					<!--<List noDataText="No data found" id="it_list" items="{/PReqSet}">-->
